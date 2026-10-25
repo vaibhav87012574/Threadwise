@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "ShopSmarter",
+  "version": "0.0.4",
+  "description": "AI-Powered Personal Shopping Assistant for E-Commerce",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "css": ["capture-overlay.css"]
+  }],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "src/popup/index.html",
+  "side_panel": {
+    "default_path": "src/popup/index.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*", "capture-overlay.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

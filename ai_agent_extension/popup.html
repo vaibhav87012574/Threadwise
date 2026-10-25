@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Threadwise Assistant</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="avatar bot">🛒</div>
+            <div class="header-content">
+                <h1>Threadwise</h1>
+                <p>Find products, get recommendations & shop smarter!</p>
+            </div>
+            <button id="newChatButton" class="new-chat-button" title="Start new shopping session">+</button>
+        </div>
+
+        <!-- Messages -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="empty-state" id="emptyState">
+                <div class="empty-state-icon">🛒</div>
+                <p style="margin: 0; font-size: 1.125rem; font-weight: 500;">Start shopping with AI</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">Upload product images or ask for recommendations!</p>
+            </div>
+        </div>
+
+        <!-- Typing indicator -->
+        <div class="typing-indicator" id="typingIndicator">
+            <div class="avatar bot">🛒</div>
+            <div class="message-content">
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="chat-input">
+            <!-- Image Preview -->
+            <div class="image-preview-container" id="imagePreviewContainer">
+                <img id="imagePreview" class="image-preview" alt="Image preview">
+                <button class="remove-image" id="removeImage">×</button>
+            </div>
+
+            <div class="input-container">
+                <textarea 
+                    id="messageInput" 
+                    class="message-input" 
+                    placeholder="Take a snippet or type your message..." 
+                    rows="1"
+                ></textarea>
+                
+                <div class="input-buttons">
+                    <button id="uploadButton" class="upload-button" title="Upload image">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                            <path d="M12,13L16,17H8L12,13Z"/>
+                        </svg>
+                    </button>
+                    
+                    <button id="captureButton" title="Capture screen area">
+                        📷 Take Snippet
+                    </button>
+                    
+                    <button id="sendButton" class="send-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hidden file input -->
+            <input type="file" id="fileInput" accept="image/*" class="hidden">
+        </div>
+    </div>
+
+    <script src="simple-popup.js"></script>
+</body>
+</html>
